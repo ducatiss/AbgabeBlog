@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block titel %}Category{% endblock %}
+{% block inhalt %}
+<br>
+    <div class="card text-center">
+        <h5 class="card-header">Übersicht der Katgeorien</h5>
+    </div>
+<br>
+ <div class="card shadow m-1 ">
+        <div class="card-body">
+            <ul class="list-group">
+                {% for k in data %}
+                    <li class="list-group-item font-weight-bold"> {{ k.text }}
+                        <p></p>
+                        <a class="card-link btn-outline-info" href="{{ url_for('update', id=k.id) }}">Ändern</a>
+                        <a class="card-link btn-outline-danger" href="{{ url_for('remove', id=k.id) }}">Löschen</a>
+
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
